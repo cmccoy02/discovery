@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Welcome to Quartz</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="This is a blank Quartz installation. See the documentation for how to get started." />
+    <meta name="generator" content="Quartz" />
+    <meta property="og:title" content="Welcome to Quartz" />
+    <meta property="og:description" content="This is a blank Quartz installation. See the documentation for how to get started." />
+    <meta property="og:image" content="https://quartz.jzhao.xyz/static/og-image.png" />
+    <meta property="og:width" content="1200" />
+    <meta property="og:height" content="675" />
+
+    <!-- Fonts and Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Schibsted+Grotesk:wght@400;700&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400;1,600&display=swap" />
+    <link rel="icon" href="./static/icon.png" />
+
+    <!-- Stylesheets -->
+    <link href="./index.css" rel="stylesheet" type="text/css" spa-preserve />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css" rel="stylesheet" type="text/css" spa-preserve />
+
+    <!-- Scripts -->
+    <script src="./prescript.js" type="application/javascript" spa-preserve></script>
+    <script type="application/javascript" spa-preserve>
+        const fetchData = fetch("./static/contentIndex.json").then(data => data.json())
+    </script>
+</head>
+
+<body data-slug="index">
+    <div id="quartz-root" class="page">
+        <!-- Left Sidebar -->
+        <div id="quartz-body">
+            <div class="left sidebar">
+                <h2 class="page-title">
+                    <a href=".">🪴 Quartz 4.0</a>
+                </h2>
+                <div class="spacer mobile-only"></div>
+
+                <!-- Search Bar -->
+                <div class="search">
+                    <button class="search-button" id="search-button">
+                        <p>Search</p>
+                        <svg role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.9 19.7">
+                            <title>Search</title>
+                            <g class="search-path" fill="none">
+                                <path stroke-linecap="square" d="M18.5 18.3l-5.4-5.4"></path>
+                                <circle cx="8" cy="8" r="7"></circle>
+                            </g>
+                        </svg>
+                    </button>
+                    <div id="search-container">
+                        <div id="search-space">
+                            <input autocomplete="off" id="search-bar" name="search" type="text" aria-label="Search for something" placeholder="Search for something" />
+                            <div id="search-layout" data-preview="true"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dark Mode Toggle -->
+                <button class="darkmode" id="darkmode">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" aria-label="Dark mode">
+                        <title>Dark mode</title>
+                        <path d="M6,17.5C6,16.672,5.328,16,4.5,16h-3C0.672,16,0,16.672,0,17.5S0.672,19,1.5,19h3C5.328,19,6,18.328,6,17.5z..." />
+                    </svg>
+                </button>
+
+                <!-- Explorer -->
+                <div class="explorer desktop-only">
+                    <button type="button" id="explorer" data-behavior="collapse" aria-controls="explorer-content" aria-expanded="false">
+                        <h2>Explorer</h2>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none" stroke="currentColor">
+                            <polyline points="6 9 12 15 18 9"></polyline>
+                        </svg>
+                    </button>
+                    <div id="explorer-content">
+                        <ul id="explorer-ul">
+                            <!-- Folder Contents Go Here -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content -->
+            <div class="center">
+                <div class="page-header">
+                    <div class="popover-hint">
+                        <h1 class="article-title">Welcome to Quartz</h1>
+                        <p class="content-meta">
+                            <span>Sep 13, 2024</span>
+                            <span>1 min read</span>
+                        </p>
+                    </div>
+                </div>
+
+                <article class="popover-hint">
+                    <p>This is a blank Quartz installation. See the <a href="https://quartz.jzhao.xyz" class="external">documentation</a> for how to get started.</p>
+                </article>
+
+                <hr />
+                <div class="page-footer"></div>
+            </div>
+
+            <!-- Right Sidebar -->
+            <div class="right sidebar">
+                <!-- Graph View -->
+                <div class="graph">
+                    <h3>Graph View</h3>
+                    <div class="graph-outer">
+                        <div id="graph-container" data-cfg='{"drag":true,"zoom":true,"depth":1}'></div>
+                    </div>
+                </div>
+
+                <!-- Backlinks -->
+                <div class="backlinks">
+                    <h3>Backlinks</h3>
+                    <ul class="overflow">
+                        <li>No backlinks found</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Created with <a href="https://quartz.jzhao.xyz/">Quartz v4.3.1</a> © 2024</p>
+        <ul>
+            <li><a href="https://github.com/jackyzha0/quartz">GitHub</a></li>
+            <li><a href="https://discord.gg/cRFFHYye7t">Discord Community</a></li>
+        </ul>
+    </footer>
+
+    <!-- JavaScript -->
+    <script type="application/javascript">
+        function c() {
+            let t = this.parentElement;
+            t.classList.toggle("is-collapsed");
+            let l = t.classList.contains("is-collapsed") ? this.scrollHeight : t.scrollHeight;
+            t.style.maxHeight = l + "px";
+        }
+
+        function i() {
+            let t = document.getElementsByClassName("callout is-collapsible");
+            for (let s of t) {
+                let l = s.firstElementChild;
+                if (l) {
+                    l.addEventListener("click", c);
+                    let e = s.classList.contains("is-collapsed") ? l.scrollHeight : s.scrollHeight;
+                    s.style.maxHeight = e + "px";
+                }
+            }
+        }
+
+        document.addEventListener("nav", i);
+        window.addEventListener("resize", i);
+    </script>
+
+    <script type="module">
+        let mermaidImport = undefined;
+        document.addEventListener('nav', async () => {
+            if (document.querySelector("code.mermaid")) {
+                mermaidImport ||= await import('https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.7.0/mermaid.esm.min.mjs');
+                const mermaid = mermaidImport.default;
+                const darkMode = document.documentElement.getAttribute('saved-theme') === 'dark';
+                mermaid.initialize({
+                    startOnLoad: false,
+                    securityLevel: 'loose',
+                    theme: darkMode ? 'dark' : 'default'
+                });
+                await mermaid.run({ querySelector: '.mermaid' });
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/copy-tex.min.js" type="application/javascript"></script>
+    <script type="application/javascript">
+        const socket = new WebSocket('ws://localhost:3001');
+        socket.addEventListener('message', () => document.location.reload(true));
+    </script>
+    <script src="./postscript.js" type="module"></script>
+</body>
+
+</html>
