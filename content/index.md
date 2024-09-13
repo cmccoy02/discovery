@@ -1,6 +1,5 @@
 ---
-title: Welcome to Quartz
+title: Welcome!
 ---
 
-This is a blank Quartz installation.
-See the [documentation](https://quartz.jzhao.xyz) for how to get started.
+This is my discovery journal for the Fall 2024 semester. Read along as I discover opportunities in entrepreneurship and record my findings.
